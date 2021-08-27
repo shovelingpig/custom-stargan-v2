@@ -1,1 +1,1 @@
-# custom-stargan-v2
+# Custom StarGAN v2
