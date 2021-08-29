@@ -10,14 +10,14 @@ conda install x264=='1!152.20180717' ffmpeg=4.0.2 -c conda-forge
 pip install -r requirements.txt
 ```
 
-## Load Pretrained Model
+## Load Pretrained Models
 ```bash
 bash download.sh pretrained-network-celeba-hq
 bash download.sh pretrained-network-afhq
 bash download.sh wing
 ```
 
-## Preprocess Custom Image
+## Preprocess Custom Images
 
 ```bash
 python main.py --mode align \
