@@ -70,7 +70,7 @@ def main(args):
                                             num_workers=args.num_workers))
         solver.sample(loaders)
     elif args.mode == 'eval':
-        solver.evaluate(args)
+        solver.evaluate()
     elif args.mode == 'align':
         from core.wing import align_faces
         align_faces(args, args.inp_dir, args.out_dir)

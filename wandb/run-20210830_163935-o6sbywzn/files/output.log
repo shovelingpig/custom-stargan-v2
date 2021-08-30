@@ -1,0 +1,17 @@
+Number of parameters of generator: 43467395
+Number of parameters of mapping_network: 2438272
+Number of parameters of style_encoder: 20916928
+Number of parameters of discriminator: 20852290
+Number of parameters of fan: 6333603
+Initializing generator...
+Initializing mapping_network...
+Initializing style_encoder...
+Initializing discriminator...
+Traceback (most recent call last):
+  File "main.py", line 223, in <module>
+    main(args)
+  File "main.py", line 73, in main
+    solver.evaluate(args)
+  File "/Users/minchan/opt/anaconda3/envs/custom-stargan-v2/lib/python3.6/site-packages/torch/autograd/grad_mode.py", line 49, in decorate_no_grad
+    return func(*args, **kwargs)
+TypeError: evaluate() takes 1 positional argument but 2 were given

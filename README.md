@@ -10,6 +10,12 @@ conda install x264=='1!152.20180717' ffmpeg=4.0.2 -c conda-forge
 pip install -r requirements.txt
 ```
 
+## Load Dataset
+```bash
+bash download.sh celeba-hq-dataset
+bash download.sh afhq-dataset
+```
+
 ## Training
 ```bash
 python main.py --mode train --num_domains 2 --w_hpf 1 \
