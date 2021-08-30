@@ -2,6 +2,8 @@
 
 ## Set Up
 
+[Download Anaconda](https://www.anaconda.com/products/individual)
+
 ```bash
 conda create -n custom-stargan-v2 python=3.6.7
 conda activate custom-stargan-v2
