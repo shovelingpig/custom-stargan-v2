@@ -1,0 +1,39 @@
+{
+    "os": "Darwin-19.6.0-x86_64-i386-64bit",
+    "python": "3.6.13",
+    "heartbeatAt": "2021-08-29T07:30:32.136478",
+    "startedAt": "2021-08-29T07:30:30.220146",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "--mode",
+        "sample",
+        "--num_domains",
+        "3",
+        "--resume_iter",
+        "100000",
+        "--w_hpf",
+        "0",
+        "--checkpoint_dir",
+        "expr/checkpoints/afhq",
+        "--result_dir",
+        "expr/results/afhq",
+        "--src_dir",
+        "assets/representative/afhq/src",
+        "--ref_dir",
+        "assets/representative/afhq/ref"
+    ],
+    "state": "running",
+    "program": "main.py",
+    "codePath": "main.py",
+    "git": {
+        "remote": "https://github.com/shoveling-pig/custom-stargan-v2.git",
+        "commit": "93cce2a01a0a4595b1f7da016076276a3b4d24b8"
+    },
+    "email": "55829146+flux1126@users.noreply.github.com",
+    "root": "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2",
+    "host": "gimminchan-ui-MacBookAir.local",
+    "username": "minchan",
+    "executable": "/Users/minchan/opt/anaconda3/envs/custom-stargan-v2/bin/python"
+}

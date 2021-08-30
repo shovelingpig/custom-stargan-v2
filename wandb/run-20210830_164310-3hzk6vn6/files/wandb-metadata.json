@@ -1,0 +1,39 @@
+{
+    "os": "Darwin-19.6.0-x86_64-i386-64bit",
+    "python": "3.6.13",
+    "heartbeatAt": "2021-08-30T07:43:12.246176",
+    "startedAt": "2021-08-30T07:43:10.918423",
+    "docker": null,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [
+        "--mode",
+        "eval",
+        "--num_domains",
+        "2",
+        "--w_hpf",
+        "1",
+        "--resume_iter",
+        "100000",
+        "--train_img_dir",
+        "data/celeba_hq/train",
+        "--val_img_dir",
+        "data/celeba_hq/val",
+        "--checkpoint_dir",
+        "expr/checkpoints/celeba_hq",
+        "--eval_dir",
+        "expr/eval/celeba_hq"
+    ],
+    "state": "running",
+    "program": "main.py",
+    "codePath": "main.py",
+    "git": {
+        "remote": "https://github.com/shoveling-pig/custom-stargan-v2.git",
+        "commit": "e82a9820452416f37ff97a0375e038f38c5c8b7e"
+    },
+    "email": "55829146+flux1126@users.noreply.github.com",
+    "root": "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2",
+    "host": "gimminchan-ui-MacBookAir.local",
+    "username": "minchan",
+    "executable": "/Users/minchan/opt/anaconda3/envs/custom-stargan-v2/bin/python"
+}

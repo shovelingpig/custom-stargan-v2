@@ -1,0 +1,25 @@
+2021-08-29 16:30:30,224 INFO    MainThread:64706 [wandb_setup.py:_flush():69] setting env: {}
+2021-08-29 16:30:30,224 INFO    MainThread:64706 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-08-29 16:30:30,224 INFO    MainThread:64706 [wandb_init.py:_log_setup():342] Logging user logs to /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210829_163030-3p03v5ej/logs/debug.log
+2021-08-29 16:30:30,225 INFO    MainThread:64706 [wandb_init.py:_log_setup():343] Logging internal logs to /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210829_163030-3p03v5ej/logs/debug-internal.log
+2021-08-29 16:30:30,225 INFO    MainThread:64706 [wandb_init.py:init():375] calling init triggers
+2021-08-29 16:30:30,225 INFO    MainThread:64706 [wandb_init.py:init():382] wandb.init called with sweep_config: {}
+config: {'img_size': 256, 'num_domains': 3, 'latent_dim': 16, 'hidden_dim': 512, 'style_dim': 64, 'lambda_reg': 1, 'lambda_cyc': 1, 'lambda_sty': 1, 'lambda_ds': 1, 'ds_iter': 100000, 'w_hpf': 0.0, 'randcrop_prob': 0.5, 'total_iters': 100000, 'resume_iter': 100000, 'batch_size': 4, 'val_batch_size': 32, 'lr': 0.0001, 'f_lr': 1e-06, 'beta1': 0.0, 'beta2': 0.99, 'weight_decay': 0.0001, 'num_outs_per_domain': 10, 'mode': 'sample', 'num_workers': 4, 'seed': 777, 'train_img_dir': 'data/celeba_hq/train', 'val_img_dir': 'data/celeba_hq/val', 'sample_dir': 'expr/samples', 'checkpoint_dir': 'expr/checkpoints/afhq', 'eval_dir': 'expr/eval', 'result_dir': 'expr/results/afhq', 'src_dir': 'assets/representative/afhq/src', 'ref_dir': 'assets/representative/afhq/ref', 'inp_dir': 'assets/representative/custom/female', 'out_dir': 'assets/representative/celeba_hq/src/female', 'wing_path': 'expr/checkpoints/wing.ckpt', 'lm_path': 'expr/checkpoints/celeba_lm_mean.npz', 'print_every': 10, 'sample_every': 2000, 'save_every': 5000, 'eval_every': 10000, 'model_name': '', 'custom_src': 'assets/representative/afhq/src', 'custom_ref': 'assets/representative/afhq/ref', 'custom_out_img': 'starganv2_cross.jpg', 'extend_domain': 1}
+2021-08-29 16:30:30,226 INFO    MainThread:64706 [wandb_init.py:init():424] starting backend
+2021-08-29 16:30:30,226 INFO    MainThread:64706 [backend.py:_multiprocessing_setup():72] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2021-08-29 16:30:30,243 INFO    MainThread:64706 [backend.py:ensure_launched():135] starting backend process...
+2021-08-29 16:30:30,255 INFO    MainThread:64706 [backend.py:ensure_launched():140] started backend process with pid: 64717
+2021-08-29 16:30:30,259 INFO    MainThread:64706 [wandb_init.py:init():429] backend started and connected
+2021-08-29 16:30:30,278 INFO    MainThread:64706 [wandb_init.py:init():477] updated telemetry
+2021-08-29 16:30:30,278 INFO    MainThread:64706 [wandb_init.py:init():500] communicating current version
+2021-08-29 16:30:31,659 INFO    MainThread:64706 [wandb_init.py:init():505] got version response 
+2021-08-29 16:30:31,660 INFO    MainThread:64706 [wandb_init.py:init():513] communicating run to backend with 30 second timeout
+2021-08-29 16:30:32,124 INFO    MainThread:64706 [wandb_init.py:init():540] starting run threads in backend
+2021-08-29 16:30:34,063 INFO    MainThread:64706 [wandb_run.py:_console_start():1601] atexit reg
+2021-08-29 16:30:34,064 INFO    MainThread:64706 [wandb_run.py:_redirect():1475] redirect: SettingsConsole.REDIRECT
+2021-08-29 16:30:34,065 INFO    MainThread:64706 [wandb_run.py:_redirect():1480] Redirecting console.
+2021-08-29 16:30:34,066 INFO    MainThread:64706 [wandb_run.py:_redirect():1536] Redirects installed.
+2021-08-29 16:30:34,067 INFO    MainThread:64706 [wandb_init.py:init():565] run started, returning control to user process
+2021-08-29 16:30:34,067 INFO    MainThread:64706 [wandb_run.py:_config_callback():843] config_cb None None {'dataset': 'afhq', 'type': 'train'}
+2021-08-29 16:31:07,100 INFO    MainThread:64706 [wandb_run.py:_atexit_cleanup():1571] got exitcode: 255
+2021-08-29 16:31:07,105 INFO    MainThread:64706 [wandb_run.py:_restore():1543] restore
