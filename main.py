@@ -2,13 +2,15 @@ import os
 import argparse
 
 from munch import Munch
+import shutil
 from torch.backends import cudnn
 import torch
-import shutil
 
 from core.data_loader import get_train_loader
 from core.data_loader import get_test_loader
 from core.solver import Solver
+
+import wandb
 
 
 def str2bool(v):
@@ -22,6 +24,11 @@ def subdirs(dname):
 
 def main(args):
     print(args)
+
+    wandb.init(project="custom-stargan-v2", entity="minchan", config=args, name=args.model_name)
+    cfg = wandb.config
+    cfg.update({"dataset" : "afhq", "type" : "train"})
+
     cudnn.benchmark = True
     torch.manual_seed(args.seed)
 
@@ -48,7 +55,6 @@ def main(args):
                                             shuffle=True,
                                             num_workers=args.num_workers))
         solver.train(loaders)
-
     elif args.mode == 'sample':
         assert len(subdirs(args.src_dir)) == args.num_domains
         assert len(subdirs(args.ref_dir)) == args.num_domains
@@ -63,14 +69,11 @@ def main(args):
                                             shuffle=False,
                                             num_workers=args.num_workers))
         solver.sample(loaders)
-
     elif args.mode == 'eval':
-        solver.evaluate()
-
+        solver.evaluate(args)
     elif args.mode == 'align':
         from core.wing import align_faces
         align_faces(args, args.inp_dir, args.out_dir)
-    
     elif args.mode == 'custom':
         if os.path.isfile(args.custom_src):
             src_dir = "tmp_src"
@@ -95,7 +98,7 @@ def main(args):
                     shutil.copy2(args.custom_ref, d)
             ref_images = ref_dir
         else:
-            ref_images = args.custom_ref  
+            ref_images = args.custom_ref     
         loaders = Munch(src=get_test_loader(root=src_images,
                                             img_size=args.img_size,
                                             batch_size=args.val_batch_size,
@@ -107,7 +110,6 @@ def main(args):
                                             shuffle=False,
                                             num_workers=args.num_workers))
         solver.custom(loaders)
-
     else:
         raise NotImplementedError
 
@@ -118,7 +120,7 @@ if __name__ == '__main__':
     # model arguments
     parser.add_argument('--img_size', type=int, default=256,
                         help='Image resolution')
-    parser.add_argument('--num_domains', type=int, default=2,
+    parser.add_argument('--num_domains', type=int, default=3,
                         help='Number of domains')
     parser.add_argument('--latent_dim', type=int, default=16,
                         help='Latent vector dimension')
@@ -138,7 +140,7 @@ if __name__ == '__main__':
                         help='Weight for diversity sensitive loss')
     parser.add_argument('--ds_iter', type=int, default=100000,
                         help='Number of iterations to optimize diversity sensitive loss')
-    parser.add_argument('--w_hpf', type=float, default=1,
+    parser.add_argument('--w_hpf', type=float, default=0,
                         help='weight for high-pass filtering')
 
     # training arguments
@@ -146,9 +148,9 @@ if __name__ == '__main__':
                         help='Probabilty of using random-resized cropping')
     parser.add_argument('--total_iters', type=int, default=100000,
                         help='Number of total iterations')
-    parser.add_argument('--resume_iter', type=int, default=0,
+    parser.add_argument('--resume_iter', type=int, default=100000,
                         help='Iterations to resume training/testing')
-    parser.add_argument('--batch_size', type=int, default=8,
+    parser.add_argument('--batch_size', type=int, default=4,
                         help='Batch size for training')
     parser.add_argument('--val_batch_size', type=int, default=32,
                         help='Batch size for validation')
@@ -167,7 +169,7 @@ if __name__ == '__main__':
 
     # solver
     parser.add_argument('--mode', type=str, required=True,
-                        choices=['train', 'sample', 'eval', 'align', 'custom'],
+                        choices=['train', 'sample', 'custom', 'eval', 'align'],
                         help='This argument is used in solver')
     parser.add_argument('--num_workers', type=int, default=4,
                         help='Number of workers used in DataLoader')
@@ -181,7 +183,7 @@ if __name__ == '__main__':
                         help='Directory containing validation images')
     parser.add_argument('--sample_dir', type=str, default='expr/samples',
                         help='Directory for saving generated images')
-    parser.add_argument('--checkpoint_dir', type=str, default='expr/checkpoints',
+    parser.add_argument('--checkpoint_dir', type=str, default='expr/checkpoints/afhq',
                         help='Directory for saving network checkpoints')
 
     # directory for calculating metrics
@@ -206,9 +208,16 @@ if __name__ == '__main__':
 
     # step size
     parser.add_argument('--print_every', type=int, default=10)
-    parser.add_argument('--sample_every', type=int, default=5000)
-    parser.add_argument('--save_every', type=int, default=10000)
-    parser.add_argument('--eval_every', type=int, default=50000)
-
+    parser.add_argument('--sample_every', type=int, default=2000)
+    parser.add_argument('--save_every', type=int, default=5000)
+    parser.add_argument('--eval_every', type=int, default=10000)
+    
+    # wandb logging and demo
+    parser.add_argument('-m', '--model_name', type=str, default="")
+    parser.add_argument('-s', '--custom_src', type=str, default='assets/representative/afhq/src')
+    parser.add_argument('-r', '--custom_ref', type=str, default='assets/representative/afhq/ref')
+    parser.add_argument('-o', '--custom_out_img', type=str, default='starganv2_cross.jpg')
+    parser.add_argument('-x', '--extend_domain', type=int, default=1)
+ 
     args = parser.parse_args()
     main(args)
