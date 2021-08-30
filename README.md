@@ -10,6 +10,19 @@ conda install x264=='1!152.20180717' ffmpeg=4.0.2 -c conda-forge
 pip install -r requirements.txt
 ```
 
+## Training
+```bash
+python main.py --mode train --num_domains 2 --w_hpf 1 \
+               --lambda_reg 1 --lambda_sty 1 --lambda_ds 1 --lambda_cyc 1 \
+               --train_img_dir data/celeba_hq/train \
+               --val_img_dir data/celeba_hq/val
+
+python main.py --mode train --num_domains 3 --w_hpf 0 \
+               --lambda_reg 1 --lambda_sty 1 --lambda_ds 2 --lambda_cyc 1 \
+               --train_img_dir data/afhq/train \
+               --val_img_dir data/afhq/val
+```
+
 ## Load Pretrained Model
 ```bash
 bash download.sh pretrained-network-celeba-hq
