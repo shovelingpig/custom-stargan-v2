@@ -10,7 +10,7 @@ conda install x264=='1!152.20180717' ffmpeg=4.0.2 -c conda-forge
 pip install -r requirements.txt
 ```
 
-## Load Pretrained Models
+## Load Pretrained Model
 ```bash
 bash download.sh pretrained-network-celeba-hq
 bash download.sh pretrained-network-afhq
@@ -25,7 +25,7 @@ python main.py --mode align \
                --out_dir assets/representative/celeba_hq/src/male
 ```
 
-## Generate
+## Generate Fake Images
 
 ```bash
 python main.py --mode sample --num_domains 2 --resume_iter 100000 --w_hpf 1 \
@@ -53,7 +53,7 @@ python main.py --mode custom \
                -r assets/representative/afhq/ref/dog/flickr_dog_001072.jpg
 ```
 
-## Evaluate
+## Evaluate Model Performance
 
 ```bash
 python main.py --mode eval --num_domains 2 --w_hpf 1 \
@@ -71,5 +71,5 @@ python main.py --mode eval --num_domains 3 --w_hpf 0 \
                --eval_dir expr/eval/afhq
 ```
 
-### W&B API Key
+### Weight & Bias API Key
 47e2707e8eb126cec05bb252988b43f16fa5016b
