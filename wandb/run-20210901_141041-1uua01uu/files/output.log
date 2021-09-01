@@ -1,0 +1,23 @@
+Number of parameters of generator: 43467395
+Number of parameters of mapping_network: 2438272
+Number of parameters of style_encoder: 20916928
+Number of parameters of discriminator: 20852290
+Number of parameters of fan: 6333603
+Initializing generator...
+Initializing mapping_network...
+Initializing style_encoder...
+Initializing discriminator...
+Traceback (most recent call last):
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/main.py", line 227, in <module>
+    main(args)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/main.py", line 75, in main
+    solver.evaluate()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/torch/autograd/grad_mode.py", line 28, in decorate_context
+    return func(*args, **kwargs)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/core/solver.py", line 185, in evaluate
+    self._load_checkpoint(args.resume_iter)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/core/solver.py", line 59, in _load_checkpoint
+    ckptio.load(step)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/core/checkpoint.py", line 24, in load
+    assert os.path.exists(fname), fname + ' does not exist!'
+AssertionError: expr/checkpoints/celeba_hq/000030_nets_ema.ckpt does not exist!

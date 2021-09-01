@@ -1,0 +1,50 @@
+Number of parameters of generator: 43467395
+Number of parameters of mapping_network: 2438272
+Number of parameters of style_encoder: 20916928
+Number of parameters of discriminator: 20852290
+Number of parameters of fan: 6333603
+Initializing generator...
+Initializing mapping_network...
+Initializing style_encoder...
+Initializing discriminator...
+Preparing DataLoader to fetch source images during the training phase...
+Preparing DataLoader to fetch reference images during the training phase...
+Preparing DataLoader for the generation phase...
+Traceback (most recent call last):
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/core/data_loader.py", line 170, in _fetch_inputs
+    x, y = next(self.iter)
+AttributeError: 'InputFetcher' object has no attribute 'iter'
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/main.py", line 227, in <module>
+    main(args)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/main.py", line 57, in main
+    solver.train(loaders)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/core/solver.py", line 83, in train
+    inputs = next(fetcher)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/core/data_loader.py", line 185, in __next__
+    x, y = self._fetch_inputs()
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/core/data_loader.py", line 172, in _fetch_inputs
+    self.iter = iter(self.loader)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 359, in __iter__
+    return self._get_iterator()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 305, in _get_iterator
+    return _MultiProcessingDataLoaderIter(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 918, in __init__
+    w.start()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/multiprocessing/context.py", line 224, in _Popen
+    return _default_context.get_context().Process._Popen(process_obj)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/multiprocessing/context.py", line 284, in _Popen
+    return Popen(process_obj)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/multiprocessing/popen_spawn_posix.py", line 32, in __init__
+    super().__init__(process_obj)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/multiprocessing/popen_spawn_posix.py", line 47, in _launch
+    reduction.dump(process_obj, fp)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/multiprocessing/reduction.py", line 60, in dump
+    ForkingPickler(file, protocol).dump(obj)
+AttributeError: Can't pickle local object 'get_train_loader.<locals>.<lambda>'
+Start training...

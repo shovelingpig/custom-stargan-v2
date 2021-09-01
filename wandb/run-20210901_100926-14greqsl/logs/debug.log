@@ -1,0 +1,125 @@
+2021-09-01 10:09:26,395 INFO    MainThread:2864 [wandb_setup.py:_flush():69] setting env: {}
+2021-09-01 10:09:26,395 INFO    MainThread:2864 [wandb_setup.py:_flush():69] setting login settings: {}
+2021-09-01 10:09:26,395 INFO    MainThread:2864 [wandb_init.py:_log_setup():342] Logging user logs to /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_100926-14greqsl/logs/debug.log
+2021-09-01 10:09:26,396 INFO    MainThread:2864 [wandb_init.py:_log_setup():343] Logging internal logs to /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_100926-14greqsl/logs/debug-internal.log
+2021-09-01 10:09:26,396 INFO    MainThread:2864 [wandb_init.py:init():375] calling init triggers
+2021-09-01 10:09:26,396 INFO    MainThread:2864 [wandb_init.py:init():380] wandb.init called with sweep_config: {}
+config: {'img_size': 256, 'num_domains': 2, 'latent_dim': 16, 'hidden_dim': 512, 'style_dim': 64, 'lambda_reg': 1.0, 'lambda_cyc': 1.0, 'lambda_sty': 1.0, 'lambda_ds': 1.0, 'ds_iter': 100000, 'w_hpf': 1.0, 'randcrop_prob': 0.5, 'total_iters': 100000, 'resume_iter': 100000, 'batch_size': 4, 'val_batch_size': 32, 'lr': 0.0001, 'f_lr': 1e-06, 'beta1': 0.0, 'beta2': 0.99, 'weight_decay': 0.0001, 'num_outs_per_domain': 10, 'mode': 'train', 'num_workers': 4, 'seed': 777, 'train_img_dir': 'data/celeba_hq/train', 'val_img_dir': 'data/celeba_hq/val', 'sample_dir': 'expr/samples', 'checkpoint_dir': 'expr/checkpoints/celeba_hq', 'eval_dir': 'expr/eval', 'result_dir': 'expr/results', 'src_dir': 'assets/representative/celeba_hq/src', 'ref_dir': 'assets/representative/celeba_hq/ref', 'inp_dir': 'assets/representative/custom/female', 'out_dir': 'assets/representative/celeba_hq/src/female', 'wing_path': 'expr/checkpoints/wing.ckpt', 'lm_path': 'expr/checkpoints/celeba_lm_mean.npz', 'print_every': 10, 'sample_every': 2000, 'save_every': 5000, 'eval_every': 10000, 'model_name': '', 'custom_src': 'assets/representative/celeba_hq/src', 'custom_ref': 'assets/representative/celeba_hq/ref', 'custom_out_img': 'starganv2_cross_celeba.jpg', 'extend_domain': 1}
+2021-09-01 10:09:26,397 INFO    MainThread:2864 [wandb_init.py:init():424] starting backend
+2021-09-01 10:09:26,397 INFO    MainThread:2864 [backend.py:_multiprocessing_setup():70] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2021-09-01 10:09:26,418 INFO    MainThread:2864 [backend.py:ensure_launched():135] starting backend process...
+2021-09-01 10:09:26,429 INFO    MainThread:2864 [backend.py:ensure_launched():139] started backend process with pid: 2874
+2021-09-01 10:09:26,434 INFO    MainThread:2864 [wandb_init.py:init():429] backend started and connected
+2021-09-01 10:09:26,448 INFO    MainThread:2864 [wandb_init.py:init():477] updated telemetry
+2021-09-01 10:09:26,448 INFO    MainThread:2864 [wandb_init.py:init():500] communicating current version
+2021-09-01 10:09:27,297 INFO    MainThread:2864 [wandb_init.py:init():505] got version response 
+2021-09-01 10:09:27,297 INFO    MainThread:2864 [wandb_init.py:init():513] communicating run to backend with 30 second timeout
+2021-09-01 10:09:27,608 INFO    MainThread:2864 [wandb_init.py:init():540] starting run threads in backend
+2021-09-01 10:09:27,663 INFO    MainThread:2864 [wandb_run.py:_console_start():1601] atexit reg
+2021-09-01 10:09:27,664 INFO    MainThread:2864 [wandb_run.py:_redirect():1475] redirect: SettingsConsole.REDIRECT
+2021-09-01 10:09:27,664 INFO    MainThread:2864 [wandb_run.py:_redirect():1480] Redirecting console.
+2021-09-01 10:09:27,666 INFO    MainThread:2864 [wandb_run.py:_redirect():1536] Redirects installed.
+2021-09-01 10:09:27,666 INFO    MainThread:2864 [wandb_init.py:init():565] run started, returning control to user process
+2021-09-01 10:09:28,352 INFO    MainThread:2864 [wandb_watch.py:watch():43] Watching
+2021-09-01 10:09:28,414 INFO    MainThread:2864 [wandb_run.py:_atexit_cleanup():1571] got exitcode: 1
+2021-09-01 10:09:28,414 INFO    MainThread:2864 [wandb_run.py:_restore():1543] restore
+2021-09-01 10:09:30,714 INFO    MainThread:2864 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 1195
+  total_bytes: 1195
+}
+
+2021-09-01 10:09:31,054 INFO    MainThread:2864 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 1
+}
+pusher_stats {
+  uploaded_bytes: 1195
+  total_bytes: 1195
+}
+
+2021-09-01 10:09:31,655 INFO    MainThread:2864 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 1195
+  total_bytes: 6104
+}
+
+2021-09-01 10:09:31,765 INFO    MainThread:2864 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 1195
+  total_bytes: 6104
+}
+
+2021-09-01 10:09:31,874 INFO    MainThread:2864 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 1195
+  total_bytes: 6104
+}
+
+2021-09-01 10:09:31,982 INFO    MainThread:2864 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 1195
+  total_bytes: 6104
+}
+
+2021-09-01 10:09:32,087 INFO    MainThread:2864 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 6104
+  total_bytes: 6104
+}
+
+2021-09-01 10:09:32,193 INFO    MainThread:2864 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 6104
+  total_bytes: 6104
+}
+
+2021-09-01 10:09:32,316 INFO    MainThread:2864 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 6104
+  total_bytes: 6104
+}
+
+2021-09-01 10:09:32,420 INFO    MainThread:2864 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 6104
+  total_bytes: 6104
+}
+
+2021-09-01 10:09:32,896 INFO    MainThread:2864 [wandb_run.py:_wait_for_finish():1693] got exit ret: file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 6104
+  total_bytes: 6104
+}
+
+2021-09-01 10:09:33,006 INFO    MainThread:2864 [wandb_run.py:_wait_for_finish():1693] got exit ret: done: true
+exit_result {
+}
+file_counts {
+  wandb_count: 5
+}
+pusher_stats {
+  uploaded_bytes: 6104
+  total_bytes: 6104
+}
+
+2021-09-01 10:09:34,118 INFO    MainThread:2864 [wandb_run.py:_show_files():1915] logging synced files

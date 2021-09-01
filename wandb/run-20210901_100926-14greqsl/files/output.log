@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/main.py", line 227, in <module>
+    main(args)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/main.py", line 35, in main
+    solver = Solver(args)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/core/solver.py", line 25, in __init__
+    self.nets, self.nets_ema = build_model(args)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/core/model.py", line 291, in build_model
+    fan = FAN(fname_pretrained=args.wing_path).eval()
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/core/wing.py", line 200, in __init__
+    self.load_pretrained_weights(fname_pretrained)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/core/wing.py", line 206, in load_pretrained_weights
+    checkpoint = torch.load(fname, map_location=torch.device('cpu'))
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/torch/serialization.py", line 594, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'expr/checkpoints/wing.ckpt'

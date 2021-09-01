@@ -1,0 +1,142 @@
+2021-09-01 10:17:58,641 INFO    MainThread:3088 [internal.py:wandb_internal():86] W&B internal server running at pid: 3088, started at: 2021-09-01 10:17:58.640784
+2021-09-01 10:17:58,645 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: check_version
+2021-09-01 10:17:58,645 INFO    WriterThread:3088 [datastore.py:open_for_write():77] open: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/run-3g4cyixe.wandb
+2021-09-01 10:17:58,648 DEBUG   SenderThread:3088 [sender.py:send():182] send: header
+2021-09-01 10:17:58,648 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: check_version
+2021-09-01 10:17:58,877 DEBUG   SenderThread:3088 [sender.py:send():182] send: run
+2021-09-01 10:17:59,210 INFO    SenderThread:3088 [dir_watcher.py:__init__():169] watching files in: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files
+2021-09-01 10:17:59,210 INFO    SenderThread:3088 [sender.py:_start_run_threads():740] run started: 3g4cyixe with start time 1630459078
+2021-09-01 10:17:59,218 DEBUG   SenderThread:3088 [sender.py:send():182] send: summary
+2021-09-01 10:17:59,219 INFO    SenderThread:3088 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-01 10:17:59,221 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: run_start
+2021-09-01 10:17:59,223 DEBUG   HandlerThread:3088 [meta.py:__init__():40] meta init
+2021-09-01 10:17:59,227 DEBUG   HandlerThread:3088 [meta.py:__init__():54] meta init done
+2021-09-01 10:17:59,228 DEBUG   HandlerThread:3088 [meta.py:probe():211] probe
+2021-09-01 10:17:59,232 DEBUG   HandlerThread:3088 [meta.py:_setup_git():201] setup git
+2021-09-01 10:17:59,258 DEBUG   HandlerThread:3088 [meta.py:_setup_git():208] setup git done
+2021-09-01 10:17:59,258 DEBUG   HandlerThread:3088 [meta.py:_save_pip():58] save pip
+2021-09-01 10:17:59,259 DEBUG   HandlerThread:3088 [meta.py:_save_pip():72] save pip done
+2021-09-01 10:17:59,259 DEBUG   HandlerThread:3088 [meta.py:probe():249] probe done
+2021-09-01 10:17:59,264 DEBUG   SenderThread:3088 [sender.py:send():182] send: files
+2021-09-01 10:17:59,264 INFO    SenderThread:3088 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2021-09-01 10:17:59,270 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: stop_status
+2021-09-01 10:17:59,271 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: stop_status
+2021-09-01 10:17:59,874 INFO    Thread-11 :3088 [upload_job.py:push():137] Uploaded file /var/folders/c2/5y1_rhp56957jdmg4l39cps40000gn/T/tmp4qf9gn6fwandb/ceginmmu-wandb-metadata.json
+2021-09-01 10:18:00,217 INFO    Thread-8  :3088 [dir_watcher.py:_on_file_created():217] file/dir created: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/requirements.txt
+2021-09-01 10:18:00,217 INFO    Thread-8  :3088 [dir_watcher.py:_on_file_created():217] file/dir created: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/output.log
+2021-09-01 10:18:00,217 INFO    Thread-8  :3088 [dir_watcher.py:_on_file_created():217] file/dir created: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/wandb-metadata.json
+2021-09-01 10:18:00,217 INFO    Thread-8  :3088 [dir_watcher.py:_on_file_created():217] file/dir created: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/wandb-summary.json
+2021-09-01 10:18:02,217 INFO    Thread-8  :3088 [dir_watcher.py:_on_file_modified():230] file/dir modified: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/output.log
+2021-09-01 10:18:04,220 INFO    Thread-8  :3088 [dir_watcher.py:_on_file_modified():230] file/dir modified: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/output.log
+2021-09-01 10:18:06,229 INFO    Thread-8  :3088 [dir_watcher.py:_on_file_modified():230] file/dir modified: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/output.log
+2021-09-01 10:18:16,883 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-01 10:18:16,883 DEBUG   SenderThread:3088 [sender.py:send():182] send: telemetry
+2021-09-01 10:18:16,884 DEBUG   SenderThread:3088 [sender.py:send():182] send: exit
+2021-09-01 10:18:16,884 INFO    SenderThread:3088 [sender.py:send_exit():291] handling exit code: 0
+2021-09-01 10:18:16,884 INFO    SenderThread:3088 [sender.py:send_exit():293] handling runtime: 17
+2021-09-01 10:18:16,886 INFO    SenderThread:3088 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-01 10:18:16,886 INFO    SenderThread:3088 [sender.py:send_exit():303] send defer
+2021-09-01 10:18:16,887 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: poll_exit
+2021-09-01 10:18:16,887 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: defer
+2021-09-01 10:18:16,888 INFO    HandlerThread:3088 [handler.py:handle_request_defer():143] handle defer: 0
+2021-09-01 10:18:16,889 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: defer
+2021-09-01 10:18:16,889 INFO    SenderThread:3088 [sender.py:send_request_defer():312] handle sender defer: 0
+2021-09-01 10:18:16,889 INFO    SenderThread:3088 [sender.py:transition_state():316] send defer: 1
+2021-09-01 10:18:16,890 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: defer
+2021-09-01 10:18:16,890 INFO    HandlerThread:3088 [handler.py:handle_request_defer():143] handle defer: 1
+2021-09-01 10:18:16,901 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: defer
+2021-09-01 10:18:16,901 INFO    SenderThread:3088 [sender.py:send_request_defer():312] handle sender defer: 1
+2021-09-01 10:18:16,902 INFO    SenderThread:3088 [sender.py:transition_state():316] send defer: 2
+2021-09-01 10:18:16,902 DEBUG   SenderThread:3088 [sender.py:send():182] send: stats
+2021-09-01 10:18:16,902 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: defer
+2021-09-01 10:18:16,902 INFO    HandlerThread:3088 [handler.py:handle_request_defer():143] handle defer: 2
+2021-09-01 10:18:16,903 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: defer
+2021-09-01 10:18:16,903 INFO    SenderThread:3088 [sender.py:send_request_defer():312] handle sender defer: 2
+2021-09-01 10:18:16,903 INFO    SenderThread:3088 [sender.py:transition_state():316] send defer: 3
+2021-09-01 10:18:16,903 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: defer
+2021-09-01 10:18:16,903 INFO    HandlerThread:3088 [handler.py:handle_request_defer():143] handle defer: 3
+2021-09-01 10:18:16,904 DEBUG   SenderThread:3088 [sender.py:send():182] send: summary
+2021-09-01 10:18:16,904 INFO    SenderThread:3088 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2021-09-01 10:18:16,904 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: defer
+2021-09-01 10:18:16,904 INFO    SenderThread:3088 [sender.py:send_request_defer():312] handle sender defer: 3
+2021-09-01 10:18:16,905 INFO    SenderThread:3088 [sender.py:transition_state():316] send defer: 4
+2021-09-01 10:18:16,905 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: defer
+2021-09-01 10:18:16,905 INFO    HandlerThread:3088 [handler.py:handle_request_defer():143] handle defer: 4
+2021-09-01 10:18:16,905 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: defer
+2021-09-01 10:18:16,905 INFO    SenderThread:3088 [sender.py:send_request_defer():312] handle sender defer: 4
+2021-09-01 10:18:16,995 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-01 10:18:17,173 INFO    SenderThread:3088 [sender.py:transition_state():316] send defer: 5
+2021-09-01 10:18:17,173 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: poll_exit
+2021-09-01 10:18:17,174 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: defer
+2021-09-01 10:18:17,174 INFO    HandlerThread:3088 [handler.py:handle_request_defer():143] handle defer: 5
+2021-09-01 10:18:17,174 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: defer
+2021-09-01 10:18:17,174 INFO    SenderThread:3088 [sender.py:send_request_defer():312] handle sender defer: 5
+2021-09-01 10:18:17,174 INFO    SenderThread:3088 [dir_watcher.py:finish():283] shutting down directory watcher
+2021-09-01 10:18:17,277 INFO    SenderThread:3088 [dir_watcher.py:_on_file_modified():230] file/dir modified: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/output.log
+2021-09-01 10:18:17,278 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-01 10:18:17,278 INFO    SenderThread:3088 [dir_watcher.py:_on_file_modified():230] file/dir modified: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/config.yaml
+2021-09-01 10:18:17,279 INFO    SenderThread:3088 [dir_watcher.py:_on_file_modified():230] file/dir modified: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/wandb-summary.json
+2021-09-01 10:18:17,279 INFO    SenderThread:3088 [dir_watcher.py:finish():313] scan: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files
+2021-09-01 10:18:17,279 INFO    SenderThread:3088 [dir_watcher.py:finish():327] scan save: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/requirements.txt requirements.txt
+2021-09-01 10:18:17,280 INFO    SenderThread:3088 [dir_watcher.py:finish():327] scan save: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/output.log output.log
+2021-09-01 10:18:17,280 INFO    SenderThread:3088 [dir_watcher.py:finish():327] scan save: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/config.yaml config.yaml
+2021-09-01 10:18:17,284 INFO    SenderThread:3088 [dir_watcher.py:finish():327] scan save: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/wandb-summary.json wandb-summary.json
+2021-09-01 10:18:17,285 INFO    SenderThread:3088 [dir_watcher.py:finish():327] scan save: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/wandb-metadata.json wandb-metadata.json
+2021-09-01 10:18:17,288 INFO    SenderThread:3088 [sender.py:transition_state():316] send defer: 6
+2021-09-01 10:18:17,289 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: poll_exit
+2021-09-01 10:18:17,289 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: defer
+2021-09-01 10:18:17,290 INFO    HandlerThread:3088 [handler.py:handle_request_defer():143] handle defer: 6
+2021-09-01 10:18:17,296 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: defer
+2021-09-01 10:18:17,300 INFO    SenderThread:3088 [sender.py:send_request_defer():312] handle sender defer: 6
+2021-09-01 10:18:17,301 INFO    SenderThread:3088 [file_pusher.py:finish():177] shutting down file pusher
+2021-09-01 10:18:17,396 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-01 10:18:17,396 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: poll_exit
+2021-09-01 10:18:17,499 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-01 10:18:17,500 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: poll_exit
+2021-09-01 10:18:17,603 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-01 10:18:17,604 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: poll_exit
+2021-09-01 10:18:17,711 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-01 10:18:17,712 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: poll_exit
+2021-09-01 10:18:17,815 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-01 10:18:17,816 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: poll_exit
+2021-09-01 10:18:17,919 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-01 10:18:17,920 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: poll_exit
+2021-09-01 10:18:18,010 INFO    Thread-15 :3088 [upload_job.py:push():137] Uploaded file /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/wandb-summary.json
+2021-09-01 10:18:18,012 INFO    Thread-12 :3088 [upload_job.py:push():137] Uploaded file /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/requirements.txt
+2021-09-01 10:18:18,015 INFO    Thread-13 :3088 [upload_job.py:push():137] Uploaded file /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/output.log
+2021-09-01 10:18:18,017 INFO    Thread-14 :3088 [upload_job.py:push():137] Uploaded file /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/files/config.yaml
+2021-09-01 10:18:18,025 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-01 10:18:18,026 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: poll_exit
+2021-09-01 10:18:18,131 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-01 10:18:18,132 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: poll_exit
+2021-09-01 10:18:18,221 INFO    Thread-7  :3088 [sender.py:transition_state():316] send defer: 7
+2021-09-01 10:18:18,222 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: defer
+2021-09-01 10:18:18,222 INFO    HandlerThread:3088 [handler.py:handle_request_defer():143] handle defer: 7
+2021-09-01 10:18:18,223 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: defer
+2021-09-01 10:18:18,223 INFO    SenderThread:3088 [sender.py:send_request_defer():312] handle sender defer: 7
+2021-09-01 10:18:18,240 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-01 10:18:19,514 INFO    SenderThread:3088 [sender.py:transition_state():316] send defer: 8
+2021-09-01 10:18:19,515 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: poll_exit
+2021-09-01 10:18:19,516 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: defer
+2021-09-01 10:18:19,517 INFO    HandlerThread:3088 [handler.py:handle_request_defer():143] handle defer: 8
+2021-09-01 10:18:19,517 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: defer
+2021-09-01 10:18:19,517 INFO    SenderThread:3088 [sender.py:send_request_defer():312] handle sender defer: 8
+2021-09-01 10:18:19,518 INFO    SenderThread:3088 [sender.py:transition_state():316] send defer: 9
+2021-09-01 10:18:19,519 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: defer
+2021-09-01 10:18:19,519 INFO    HandlerThread:3088 [handler.py:handle_request_defer():143] handle defer: 9
+2021-09-01 10:18:19,519 DEBUG   SenderThread:3088 [sender.py:send():182] send: final
+2021-09-01 10:18:19,520 DEBUG   SenderThread:3088 [sender.py:send():182] send: footer
+2021-09-01 10:18:19,520 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: defer
+2021-09-01 10:18:19,520 INFO    SenderThread:3088 [sender.py:send_request_defer():312] handle sender defer: 9
+2021-09-01 10:18:19,621 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: poll_exit
+2021-09-01 10:18:19,622 DEBUG   SenderThread:3088 [sender.py:send_request():196] send_request: poll_exit
+2021-09-01 10:18:19,622 INFO    SenderThread:3088 [file_pusher.py:join():182] waiting for file pusher
+2021-09-01 10:18:19,625 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: get_summary
+2021-09-01 10:18:19,627 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: sampled_history
+2021-09-01 10:18:19,628 DEBUG   HandlerThread:3088 [handler.py:handle_request():126] handle_request: shutdown
+2021-09-01 10:18:19,629 INFO    HandlerThread:3088 [handler.py:finish():683] shutting down handler
+2021-09-01 10:18:20,527 INFO    WriterThread:3088 [datastore.py:close():281] close: /Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/wandb/run-20210901_101758-3g4cyixe/run-3g4cyixe.wandb
+2021-09-01 10:18:20,625 INFO    SenderThread:3088 [sender.py:finish():979] shutting down sender
+2021-09-01 10:18:20,626 INFO    SenderThread:3088 [file_pusher.py:finish():177] shutting down file pusher
+2021-09-01 10:18:20,626 INFO    SenderThread:3088 [file_pusher.py:join():182] waiting for file pusher
+2021-09-01 10:18:20,632 INFO    MainThread:3088 [internal.py:handle_exit():76] Internal process exited

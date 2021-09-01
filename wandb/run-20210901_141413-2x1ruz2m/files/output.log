@@ -1,0 +1,81 @@
+Number of parameters of generator: 43467395
+Number of parameters of mapping_network: 2438272
+Number of parameters of style_encoder: 20916928
+Number of parameters of discriminator: 20852290
+Number of parameters of fan: 6333603
+Initializing generator...
+Initializing mapping_network...
+Initializing style_encoder...
+Initializing discriminator...
+  0%|                                                                                                                        | 0/32 [00:00<?, ?it/s]
+Loading checkpoint from expr/checkpoints/celeba_hq/100000_nets_ema.ckpt...
+Calculating evaluation metrics...
+Number of domains: 2
+Preparing DataLoader for the evaluation phase...
+  0%|                                                                                                                        | 0/32 [00:00<?, ?it/s]/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/torch/nn/functional.py:3609: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+Downloading: "https://download.pytorch.org/models/alexnet-owt-7be5be79.pth" to /Users/minchan/.cache/torch/hub/checkpoints/alexnet-owt-7be5be79.pth
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 1342, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/http/client.py", line 1255, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/http/client.py", line 1301, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/http/client.py", line 1250, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/http/client.py", line 1010, in _send_output
+    self.send(msg)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/http/client.py", line 950, in send
+    self.connect()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/http/client.py", line 1424, in connect
+    self.sock = self._context.wrap_socket(self.sock,
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/ssl.py", line 500, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/ssl.py", line 1040, in _create
+    self.do_handshake()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/ssl.py", line 1309, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1122)
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/main.py", line 227, in <module>
+    main(args)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/main.py", line 75, in main
+    solver.evaluate()
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/torch/autograd/grad_mode.py", line 28, in decorate_context
+    return func(*args, **kwargs)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/core/solver.py", line 186, in evaluate
+    calculate_metrics(nets_ema, args, step=resume_iter, mode='latent')
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/torch/autograd/grad_mode.py", line 28, in decorate_context
+    return func(*args, **kwargs)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/metrics/eval.py", line 84, in calculate_metrics
+    lpips_value = calculate_lpips_given_images(group_of_images)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/torch/autograd/grad_mode.py", line 28, in decorate_context
+    return func(*args, **kwargs)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/metrics/lpips.py", line 77, in calculate_lpips_given_images
+    lpips = LPIPS().eval().to(device)
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/metrics/lpips.py", line 42, in __init__
+    self.alexnet = AlexNet()
+  File "/Users/minchan/Desktop/dev/my_github_repo/custom-stargan-v2/metrics/lpips.py", line 13, in __init__
+    self.layers = models.alexnet(pretrained=True).features
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/torchvision/models/alexnet.py", line 63, in alexnet
+    state_dict = load_state_dict_from_url(model_urls['alexnet'],
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/torch/hub.py", line 553, in load_state_dict_from_url
+    download_url_to_file(url, cached_file, hash_prefix, progress=progress)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/site-packages/torch/hub.py", line 419, in download_url_to_file
+    u = urlopen(req)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 1385, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 1345, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1122)>
+  0%|                                                                                                                        | 0/32 [09:23<?, ?it/s]
