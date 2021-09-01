@@ -96,4 +96,4 @@ python -m metrics.fid --paths PATH_REAL PATH_FAKE
 ```
 
 ### Weight & Bias API Key
-47e2707e8eb126cec05bb252988b43f16fa5016b
+`47e2707e8eb126cec05bb252988b43f16fa5016b`
