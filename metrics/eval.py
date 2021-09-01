@@ -56,7 +56,6 @@ def calculate_metrics(nets, args, step, mode):
                 y_trg = torch.tensor([trg_idx] * N).to(device)
                 masks = nets.fan.get_heatmap(x_src) if args.w_hpf > 0 else None
 
-                # generate 10 outputs from the same input
                 group_of_images = []
                 for j in range(args.num_outs_per_domain):
                     if mode == 'latent':
@@ -76,7 +75,6 @@ def calculate_metrics(nets, args, step, mode):
                     x_fake = nets.generator(x_src, s_trg, masks=masks)
                     group_of_images.append(x_fake)
 
-                    # save generated images to calculate FID later
                     for k in range(N):
                         filename = os.path.join(
                             path_fake,
@@ -86,28 +84,23 @@ def calculate_metrics(nets, args, step, mode):
                 lpips_value = calculate_lpips_given_images(group_of_images)
                 lpips_values.append(lpips_value)
 
-            # calculate LPIPS for each task (e.g. cat2dog, dog2cat)
             lpips_mean = np.array(lpips_values).mean()
             lpips_dict['LPIPS_%s/%s' % (mode, task)] = lpips_mean
 
-        # delete dataloaders
         del loader_src
         if mode == 'reference':
             del loader_ref
             del iter_ref
 
-    # calculate the average LPIPS for all tasks
     lpips_mean = 0
     for _, value in lpips_dict.items():
         lpips_mean += value / len(lpips_dict)
     lpips_dict['LPIPS_%s/mean' % mode] = lpips_mean
     wandb.log(lpips_dict, commit=False)
   
-    # report LPIPS values
     filename = os.path.join(args.eval_dir, 'LPIPS_%.5i_%s.json' % (step, mode))
     utils.save_json(lpips_dict, filename)
 
-    # calculate and report fid values
     calculate_fid_for_all_tasks(args, domains, step=step, mode=mode)
 
 
@@ -128,12 +121,10 @@ def calculate_fid_for_all_tasks(args, domains, step, mode):
                 batch_size=args.val_batch_size)
             fid_values['FID_%s/%s' % (mode, task)] = fid_value
 
-    # calculate the average FID for all tasks
     fid_mean = 0
     for _, value in fid_values.items():
         fid_mean += value / len(fid_values)
     fid_values['FID_%s/mean' % mode] = fid_mean
     wandb.log(fid_values, commit=False)
-    # report FID values
     filename = os.path.join(args.eval_dir, 'FID_%.5i_%s.json' % (step, mode))
     utils.save_json(fid_values, filename)

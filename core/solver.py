@@ -71,22 +71,18 @@ class Solver(nn.Module):
         nets_ema = self.nets_ema
         optims = self.optims
 
-        # fetch random validation images for debugging
         fetcher = InputFetcher(loaders.src, loaders.ref, args.latent_dim, 'train')
         fetcher_val = InputFetcher(loaders.val, None, args.latent_dim, 'val')
         inputs_val = next(fetcher_val)
 
-        # resume training if necessary
         if args.resume_iter > 0:
             self._load_checkpoint(args.resume_iter)
 
-        # remember the initial value of ds weight
         initial_lambda_ds = args.lambda_ds
 
         print('Start training...')
         start_time = time.time()
         for i in range(args.resume_iter, args.total_iters):
-            # fetch images and labels
             inputs = next(fetcher)
             x_real, y_org = inputs.x_src, inputs.y_src
             x_ref, x_ref2, y_trg = inputs.x_ref, inputs.x_ref2, inputs.y_ref
@@ -94,7 +90,6 @@ class Solver(nn.Module):
 
             masks = nets.fan.get_heatmap(x_real) if args.w_hpf > 0 else None
 
-            # train the discriminator
             d_loss, d_losses_latent = compute_d_loss(
                 nets, args, x_real, y_org, y_trg, z_trg=z_trg, masks=masks)
             self._reset_grad()
@@ -107,7 +102,6 @@ class Solver(nn.Module):
             d_loss.backward()
             optims.discriminator.step()
 
-            # train the generator
             g_loss, g_losses_latent = compute_g_loss(
                 nets, args, x_real, y_org, y_trg, z_trgs=[z_trg, z_trg2], masks=masks)
             self._reset_grad()
@@ -122,16 +116,13 @@ class Solver(nn.Module):
             g_loss.backward()
             optims.generator.step()
 
-            # compute moving average of network parameters
             moving_average(nets.generator, nets_ema.generator, beta=0.999)
             moving_average(nets.mapping_network, nets_ema.mapping_network, beta=0.999)
             moving_average(nets.style_encoder, nets_ema.style_encoder, beta=0.999)
 
-            # decay weight for diversity sensitive loss
             if args.lambda_ds > 0:
                 args.lambda_ds -= (initial_lambda_ds / args.ds_iter)
     
-            # print out log info
             if (i+1) % args.print_every == 0:
                 elapsed = time.time() - start_time
                 elapsed = str(datetime.timedelta(seconds=elapsed))[:-7]
@@ -146,16 +137,13 @@ class Solver(nn.Module):
                 print(log)
                 wandb.log(all_losses)
 
-            # generate images for debugging
             if (i+1) % args.sample_every == 0:
                 os.makedirs(args.sample_dir, exist_ok=True)
                 utils.debug_image(nets_ema, args, inputs=inputs_val, step=i+1)
 
-            # save model checkpoints
             if (i+1) % args.save_every == 0:
                 self._save_checkpoint(step=i+1)
 
-            # compute FID and LPIPS if necessary
             if (i+1) % args.eval_every == 0:
                 calculate_metrics(nets_ema, args, i+1, mode='latent')
                 calculate_metrics(nets_ema, args, i+1, mode='reference')
@@ -201,22 +189,19 @@ class Solver(nn.Module):
         calculate_metrics(nets_ema, args, step=resume_iter, mode='latent')
         calculate_metrics(nets_ema, args, step=resume_iter, mode='reference')
 
-    #@torch.no_grad()
-    #def generate(self,):
 
 def compute_d_loss(nets, args, x_real, y_org, y_trg, z_trg=None, x_ref=None, masks=None):
     assert (z_trg is None) != (x_ref is None)
-    # with real images
+
     x_real.requires_grad_()
     out = nets.discriminator(x_real, y_org)
     loss_real = adv_loss(out, 1)
     loss_reg = r1_reg(out, x_real)
 
-    # with fake images
     with torch.no_grad():
         if z_trg is not None:
             s_trg = nets.mapping_network(z_trg, y_trg)
-        else:  # x_ref is not None
+        else:
             s_trg = nets.style_encoder(x_ref, y_trg)
 
         x_fake = nets.generator(x_real, s_trg, masks=masks)
@@ -236,7 +221,6 @@ def compute_g_loss(nets, args, x_real, y_org, y_trg, z_trgs=None, x_refs=None, m
     if x_refs is not None:
         x_ref, x_ref2 = x_refs
 
-    # adversarial loss
     if z_trgs is not None:
         s_trg = nets.mapping_network(z_trg, y_trg)
     else:
@@ -286,7 +270,6 @@ def adv_loss(logits, target):
 
 
 def r1_reg(d_out, x_in):
-    # zero-centered gradient penalty for real images
     batch_size = x_in.size(0)
     grad_dout = torch.autograd.grad(
         outputs=d_out.sum(), inputs=x_in,

@@ -116,7 +116,6 @@ def debug_image(nets, args, inputs, step):
     device = inputs.x_src.device
     N = inputs.x_src.size(0)
 
-    # translate and reconstruct (reference-guided)
     filename = ospj(args.sample_dir, '%06d_cycle_consistency.jpg' % (step))
     translate_and_reconstruct(nets, args, x_src, y_src, x_ref, y_ref, filename)
 
@@ -173,14 +172,14 @@ def slide(entries, margin=32):
     """
     _, C, H, W = entries[0].shape
     alphas = get_alphas()
-    T = len(alphas) # number of frames
+    T = len(alphas)
 
     canvas = - torch.ones((T, C, H*2, W + margin))
-    merged = torch.cat(entries, dim=2)  # (1, 3, 512, 256)
+    merged = torch.cat(entries, dim=2)
     for t, alpha in enumerate(alphas):
-        top = int(H * (1 - alpha))  # top, bottom for canvas
+        top = int(H * (1 - alpha))
         bottom = H * 2
-        m_top = 0  # top, bottom for merged
+        m_top = 0
         m_bottom = 2 * H - top
         canvas[t, :, top:bottom, :W] = merged[:, :, m_top:m_bottom, :]
     return canvas
@@ -202,12 +201,11 @@ def video_ref(nets, args, x_src, x_ref, y_ref, fname):
 
         interpolated = interpolate(nets, args, x_src, s_prev, s_next)
         entries = [x_prev, x_next]
-        slided = slide(entries)  # (T, C, 256*2, 256)
-        frames = torch.cat([slided, interpolated], dim=3).cpu()  # (T, C, 256*2, 256*(batch+1))
+        slided = slide(entries)
+        frames = torch.cat([slided, interpolated], dim=3).cpu()
         video.append(frames)
         x_prev, y_prev, s_prev = x_next, y_next, s_next
 
-    # append last frame 10 time
     for _ in range(10):
         video.append(frames[-1:])
     video = tensor2ndarray255(torch.cat(video))
@@ -232,7 +230,6 @@ def video_latent(nets, args, x_src, y_list, z_list, psi, fname):
 
     s_prev = None
     video = []
-    # fetch reference images
     for idx_ref, s_next in enumerate(tqdm(s_list, 'video_latent', len(s_list))):
         if s_prev is None:
             s_prev = s_next
@@ -254,7 +251,7 @@ def save_video(fname, images, output_fps=30, vcodec='libx264', filters=''):
     num_frames, height, width, channels = images.shape
     stream = ffmpeg.input('pipe:', format='rawvideo', 
                           pix_fmt='rgb24', s='{}x{}'.format(width, height))
-    stream = ffmpeg.filter(stream, 'setpts', '2*PTS')  # 2*PTS is for slower playback
+    stream = ffmpeg.filter(stream, 'setpts', '2*PTS')
     stream = ffmpeg.output(stream, fname, pix_fmt='yuv420p', vcodec=vcodec, r=output_fps)
     stream = ffmpeg.overwrite_output(stream)
     process = ffmpeg.run_async(stream, pipe_stdin=True)

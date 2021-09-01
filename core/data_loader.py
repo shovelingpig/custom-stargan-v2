@@ -3,16 +3,15 @@ from itertools import chain
 import os
 import random
 
-from munch import Munch
-from PIL import Image
 import numpy as np
+from PIL import Image
+from munch import Munch
 
 import torch
 from torch.utils import data
 from torch.utils.data.sampler import WeightedRandomSampler
 from torchvision import transforms
 from torchvision.datasets import ImageFolder
-
 
 def listdir(dname):
     fnames = list(chain(*[list(Path(dname).rglob('*.' + ext))

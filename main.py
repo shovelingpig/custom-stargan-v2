@@ -1,16 +1,17 @@
 import os
 import argparse
 
-from munch import Munch
-import shutil
-from torch.backends import cudnn
 import torch
+from torch.backends import cudnn
+from munch import Munch
 
 from core.data_loader import get_train_loader
 from core.data_loader import get_test_loader
 from core.solver import Solver
+from core.wing import align_faces
 
 import wandb
+import shutil
 
 
 def str2bool(v):
@@ -27,7 +28,6 @@ def main(args):
 
     wandb.init(project="custom-stargan-v2", entity="minchan", config=args, name=args.model_name)
     cfg = wandb.config
-    cfg.update({"dataset" : "afhq", "type" : "train"})
 
     cudnn.benchmark = True
     torch.manual_seed(args.seed)
@@ -55,6 +55,7 @@ def main(args):
                                             shuffle=True,
                                             num_workers=args.num_workers))
         solver.train(loaders)
+
     elif args.mode == 'sample':
         assert len(subdirs(args.src_dir)) == args.num_domains
         assert len(subdirs(args.ref_dir)) == args.num_domains
@@ -69,11 +70,13 @@ def main(args):
                                             shuffle=False,
                                             num_workers=args.num_workers))
         solver.sample(loaders)
+
     elif args.mode == 'eval':
         solver.evaluate()
+
     elif args.mode == 'align':
-        from core.wing import align_faces
         align_faces(args, args.inp_dir, args.out_dir)
+
     elif args.mode == 'custom':
         if os.path.isfile(args.custom_src):
             src_dir = "tmp_src"
@@ -110,6 +113,7 @@ def main(args):
                                             shuffle=False,
                                             num_workers=args.num_workers))
         solver.custom(loaders)
+        
     else:
         raise NotImplementedError
 
@@ -183,7 +187,7 @@ if __name__ == '__main__':
                         help='Directory containing validation images')
     parser.add_argument('--sample_dir', type=str, default='expr/samples',
                         help='Directory for saving generated images')
-    parser.add_argument('--checkpoint_dir', type=str, default='expr/checkpoints/afhq',
+    parser.add_argument('--checkpoint_dir', type=str, default='expr/checkpoints/celeba_hq',
                         help='Directory for saving network checkpoints')
 
     # directory for calculating metrics
@@ -214,9 +218,9 @@ if __name__ == '__main__':
     
     # wandb logging and demo
     parser.add_argument('-m', '--model_name', type=str, default="")
-    parser.add_argument('-s', '--custom_src', type=str, default='assets/representative/afhq/src')
-    parser.add_argument('-r', '--custom_ref', type=str, default='assets/representative/afhq/ref')
-    parser.add_argument('-o', '--custom_out_img', type=str, default='starganv2_cross.jpg')
+    parser.add_argument('-s', '--custom_src', type=str, default='assets/representative/celeba_hq/src')
+    parser.add_argument('-r', '--custom_ref', type=str, default='assets/representative/celeba_hq/ref')
+    parser.add_argument('-o', '--custom_out_img', type=str, default='starganv2_cross_celeba.jpg')
     parser.add_argument('-x', '--extend_domain', type=int, default=1)
  
     args = parser.parse_args()

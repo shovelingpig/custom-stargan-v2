@@ -90,6 +90,8 @@ python main.py --mode eval --num_domains 3 --w_hpf 0 \
                --val_img_dir data/afhq/val \
                --checkpoint_dir expr/checkpoints/afhq \
                --eval_dir expr/eval/afhq
+
+python -m metrics.fid --paths PATH_REAL PATH_FAKE
 ```
 
 ### Weight & Bias API Key

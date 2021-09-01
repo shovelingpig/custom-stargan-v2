@@ -87,14 +87,14 @@ class AddCoordsTh(nn.Module):
             y_coords = torch.arange(width).unsqueeze(0).expand(height, width).float()
             x_coords = (x_coords / (height - 1)) * 2 - 1
             y_coords = (y_coords / (width - 1)) * 2 - 1
-            coords = torch.stack([x_coords, y_coords], dim=0)  # (2, height, width)
+            coords = torch.stack([x_coords, y_coords], dim=0)
 
             if self.with_r:
-                rr = torch.sqrt(torch.pow(x_coords, 2) + torch.pow(y_coords, 2))  # (height, width)
+                rr = torch.sqrt(torch.pow(x_coords, 2) + torch.pow(y_coords, 2))
                 rr = (rr / torch.max(rr)).unsqueeze(0)
                 coords = torch.cat([coords, rr], dim=0)
 
-            self.coords = coords.unsqueeze(0).to(device)  # (1, 2 or 3, height, width)
+            self.coords = coords.unsqueeze(0).to(device)
             self.x_coords = x_coords.to(device)
             self.y_coords = y_coords.to(device)
 

@@ -44,7 +44,6 @@ class LPIPS(nn.Module):
         for channels in self.alexnet.channels:
             self.lpips_weights.append(Conv1x1(channels, 1))
         self._load_lpips_weights()
-        # imagenet normalization for range [-1, 1]
         self.mu = torch.tensor([-0.03, -0.088, -0.188]).view(1, 3, 1, 1).cuda()
         self.sigma = torch.tensor([0.458, 0.448, 0.450]).view(1, 3, 1, 1).cuda()
 
@@ -74,13 +73,11 @@ class LPIPS(nn.Module):
 
 @torch.no_grad()
 def calculate_lpips_given_images(group_of_images):
-    # group_of_images = [torch.randn(N, C, H, W) for _ in range(10)]
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     lpips = LPIPS().eval().to(device)
     lpips_values = []
     num_rand_outputs = len(group_of_images)
 
-    # calculate the average of pairwise distances among all random outputs
     for i in range(num_rand_outputs-1):
         for j in range(i+1, num_rand_outputs):
             lpips_values.append(lpips(group_of_images[i], group_of_images[j]))

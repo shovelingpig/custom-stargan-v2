@@ -77,5 +77,3 @@ if __name__ == '__main__':
     args = parser.parse_args()
     fid_value = calculate_fid_given_paths(args.paths, args.img_size, args.batch_size)
     print('FID: ', fid_value)
-
-# python -m metrics.fid --paths PATH_REAL PATH_FAKE

@@ -52,7 +52,7 @@ class ResBlk(nn.Module):
 
     def forward(self, x):
         x = self._shortcut(x) + self._residual(x)
-        return x / math.sqrt(2)  # unit variance
+        return x / math.sqrt(2)
 
 
 class AdaIN(nn.Module):
@@ -136,7 +136,6 @@ class Generator(nn.Module):
             nn.LeakyReLU(0.2),
             nn.Conv2d(dim_in, 3, 1, 1, 0))
 
-        # down/up-sampling blocks
         repeat_num = int(np.log2(img_size)) - 4
         if w_hpf > 0:
             repeat_num += 1
@@ -146,10 +145,9 @@ class Generator(nn.Module):
                 ResBlk(dim_in, dim_out, normalize=True, downsample=True))
             self.decode.insert(
                 0, AdainResBlk(dim_out, dim_in, style_dim,
-                               w_hpf=w_hpf, upsample=True))  # stack-like
+                               w_hpf=w_hpf, upsample=True))
             dim_in = dim_out
 
-        # bottleneck blocks
         for _ in range(2):
             self.encode.append(
                 ResBlk(dim_out, dim_out, normalize=True))
@@ -203,9 +201,9 @@ class MappingNetwork(nn.Module):
         out = []
         for layer in self.unshared:
             out += [layer(h)]
-        out = torch.stack(out, dim=1)  # (batch, num_domains, style_dim)
+        out = torch.stack(out, dim=1)
         idx = torch.LongTensor(range(y.size(0))).to(y.device)
-        s = out[idx, y]  # (batch, style_dim)
+        s = out[idx, y]
         return s
 
 
@@ -237,9 +235,9 @@ class StyleEncoder(nn.Module):
         out = []
         for layer in self.unshared:
             out += [layer(h)]
-        out = torch.stack(out, dim=1)  # (batch, num_domains, style_dim)
+        out = torch.stack(out, dim=1)
         idx = torch.LongTensor(range(y.size(0))).to(y.device)
-        s = out[idx, y]  # (batch, style_dim)
+        s = out[idx, y]
         return s
 
 
@@ -264,9 +262,9 @@ class Discriminator(nn.Module):
 
     def forward(self, x, y):
         out = self.main(x)
-        out = out.view(out.size(0), -1)  # (batch, num_domains)
+        out = out.view(out.size(0), -1)
         idx = torch.LongTensor(range(y.size(0))).to(y.device)
-        out = out[idx, y]  # (batch)
+        out = out[idx, y]
         return out
 
 
@@ -288,7 +286,7 @@ def build_model(args):
                      mapping_network=mapping_network_ema,
                      style_encoder=style_encoder_ema)
 
-    #wandb.watch([generator, mapping_network, style_encoder, discriminator], log="all")
+    wandb.watch([generator, mapping_network, style_encoder, discriminator], log="all")
     if args.w_hpf > 0:
         fan = FAN(fname_pretrained=args.wing_path).eval()
         nets.fan = fan
