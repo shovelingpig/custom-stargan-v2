@@ -1,8 +1,8 @@
 import os
 import argparse
 
-import torch
 from torch.backends import cudnn
+import torch
 from munch import Munch
 
 from core.data_loader import get_train_loader

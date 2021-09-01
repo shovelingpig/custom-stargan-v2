@@ -10,12 +10,20 @@ conda activate custom-stargan-v2
 conda install -y pytorch=1.4.0 torchvision=0.5.0 cudatoolkit=9.0 -c pytorch
 conda install x264=='1!152.20180717' ffmpeg=4.0.2 -c conda-forge
 pip install -r requirements.txt
+pip install --upgrade wandb
 ```
 
 ## Load Dataset
 ```bash
 bash download.sh celeba-hq-dataset
 bash download.sh afhq-dataset
+```
+
+## Load Pretrained Model
+```bash
+bash download.sh pretrained-network-celeba-hq
+bash download.sh pretrained-network-afhq
+bash download.sh wing
 ```
 
 ## Training
@@ -29,13 +37,6 @@ python main.py --mode train --num_domains 3 --w_hpf 0 \
                --lambda_reg 1 --lambda_sty 1 --lambda_ds 2 --lambda_cyc 1 \
                --train_img_dir data/afhq/train \
                --val_img_dir data/afhq/val
-```
-
-## Load Pretrained Model
-```bash
-bash download.sh pretrained-network-celeba-hq
-bash download.sh pretrained-network-afhq
-bash download.sh wing
 ```
 
 ## Preprocess Custom Images
