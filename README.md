@@ -95,5 +95,5 @@ python main.py --mode eval --num_domains 3 --w_hpf 0 \
 python -m metrics.fid --paths PATH_REAL PATH_FAKE
 ```
 
-### Weight & Bias API Key
+### W&B API Key
 `47e2707e8eb126cec05bb252988b43f16fa5016b`
